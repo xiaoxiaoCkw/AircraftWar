@@ -1,0 +1,44 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Subscriber {
+    + update():void
+}
+
+abstract class AbstractEnemy {
+
+}
+
+Subscriber -left-o BombProp
+Subscriber <|.right. EnemyBullet
+Subscriber <|.. AbstractEnemy
+
+AbstractEnemy <|-- MobEnemy
+AbstractEnemy <|-- EliteEnemy
+AbstractEnemy <|-- BossEnemy
+
+class BombProp {
+    - subscriberList:List<Subscriber>
+    + propEffect(AbstractAircraft aircraft):void
+    + addSubscriber(Subscriber subscriber):void
+    + removeSubscriber(Subscriber subscriber):void
+    + notifyUpdate():void
+}
+
+class MobEnemy {
+    + update():void
+}
+
+class EliteEnemy {
+    + update():void
+}
+
+class BossEnemy {
+    + update():void
+}
+
+class EnemyBullet {
+    + update():void
+}
+
+@enduml

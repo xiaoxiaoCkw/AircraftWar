@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface PlayerDAO {
+    + getAllPlayers():List<Player>
+    + addPlayer(Player player):void
+    + write():void
+    + read():void
+}
+
+interface Serializable {}
+
+PlayerDAO <|.down. PlayerDAOImpl
+Serializable <|.. Player
+Player <-left- PlayerDAOImpl
+
+class Player {
+    - name:String
+    - score:int
+    - time:String
+    + getName():String
+    + setName(String name):void
+    + getScore():int
+    + setScore(int score):void
+    + getTime():String
+    + setTime(String time):void
+    + toString():String
+}
+
+class PlayerDAOImpl {
+    - players:List<Player>
+    + getAllPlayers():List<Player>
+    + addPlayer(Player player):void
+    + write():void
+    + read():void
+    - chooseFile():File
+}
+@enduml

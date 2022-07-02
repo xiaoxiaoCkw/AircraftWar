@@ -1,12 +1,23 @@
 package edu.hitsz.bullet;
 
 /**
- * @Author hitsz
+ * 英雄机子弹
+ *
+ * @author hitsz
  */
-public class HeroBullet extends Bullet{
+public class HeroBullet extends AbstractBullet {
 
-    public HeroBullet(int locationX, int locationY, int speedX, int speedY, int power) {
+    public HeroBullet(int locationX, int locationY, double speedX, double speedY, int power) {
         super(locationX, locationY, speedX, speedY, power);
+    }
+
+    public HeroBullet() {
+        super();
+    }
+
+    @Override
+    public void update() {
+
     }
 
 }

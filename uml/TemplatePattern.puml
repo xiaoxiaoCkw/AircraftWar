@@ -1,0 +1,43 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class BaseGame {
+    + action():void
+    # timeCountAndNewCycleJudge():boolean
+    # {abstract} enemyCreateAction():AbstractEnemy
+    # heroAircraftShootCycleJudge():boolean
+    # heroAircraftShootAction():void
+    # enemyShootCycleJudge():boolean
+    # enemyShootAction():void
+    # difficultyCycleJudge():boolean
+    # {abstract} increaseDifficulty():void
+    # bulletsMoveAction():void
+    # aircraftsMoveAction():void
+    # propsMoveAction():void
+    # crashCheckAction():void
+    # postProcessAction():void
+    + repaint():void
+    # recordPlayer():void
+}
+
+BaseGame <|-- EasyGame
+BaseGame <|-- NormalGame
+BaseGame <|-- HardGame
+
+class EasyGame {
+    # enemyCreateAction():AbstractEnemy
+    # difficultyCycleJudge():boolean
+    # increaseDifficulty():void
+}
+
+class NormalGame {
+    # enemyCreateAction():AbstractEnemy
+    # increaseDifficulty():void
+}
+
+class HardGame {
+    # enemyCreateAction():AbstractEnemy
+    # increaseDifficulty():void
+}
+
+@enduml
